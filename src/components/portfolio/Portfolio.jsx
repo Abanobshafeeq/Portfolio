@@ -1,11 +1,10 @@
-import React from 'react';
+import IMG1 from '../../assets/1.jpg';
+import IMG2 from '../../assets/2.jpg';
+import IMG3 from '../../assets/3.jpg';
+import IMG4 from '../../assets/4.jpg';
+import IMG5 from '../../assets/5.png';
+import IMG6 from '../../assets/6.jpg';
 import './portfolio.css';
-import IMG1 from '../../assets/portfolio1.jpg';
-import IMG2 from '../../assets/portfolio2.jpg';
-import IMG3 from '../../assets/portfolio3.jpg';
-import IMG4 from '../../assets/portfolio4.jpg';
-import IMG5 from '../../assets/portfolio5.png';
-import IMG6 from '../../assets/portfolio6.jpg';
 
 const portfolioData = [
   {
@@ -13,48 +12,48 @@ const portfolioData = [
     image: IMG1,
     title: 'E_Commerce USING REACT & vite & API',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-React.git',
-    demo: 'https://bebo-store-react-vite.netlify.app/'
+    demo: 'https://bebo-store-react-vite.netlify.app/',
   },
   {
     id: 2,
     image: IMG2,
     title: 'Portfolio Abanoub Shafeeq USING React',
-    github: '',
-    demo: 'https://demo2.com'
+    github: 'https://github.com/Abanobshafeeq/Portfolio.git',
+    demo: 'https://portfolio-React-abanoub.netlify.app/',
   },
   {
     id: 3,
     image: IMG3,
     title: 'Todo List App USING React',
     github: 'https://github.com/Abanobshafeeq/ToDo-List.git',
-    demo: 'https://todolist-abanoub.netlify.app/'
+    demo: 'https://todolist-abanoub.netlify.app/',
   },
   {
     id: 4,
     image: IMG4,
     title: 'Weather App USING React & API',
     github: 'https://github.com/Abanobshafeeq/WeatherApi-using-React.git',
-    demo: 'https://weather-app-api-abanoub.netlify.app/'
+    demo: 'https://weather-app-api-abanoub.netlify.app/',
   },
   {
     id: 5,
     image: IMG5,
     title: 'E-commerce Using HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-HTML.git',
-    demo: 'https://bebo-ecommerce-html.netlify.app/'
+    demo: 'https://bebo-ecommerce-html.netlify.app/',
   },
   {
     id: 6,
     image: IMG6,
     title: 'North Giza USING HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/V3.git',
-    demo: 'https://mahraganeltasbi7a.netlify.app/'
-  }
+    demo: 'https://mahraganeltasbi7a.netlify.app/',
+  },
 ];
 
 function Portfolio() {
   return (
-    <section id='portfolio'>
+    <section id="portfolio">
       <h5>My Recent Work</h5>
       <h2>Portfolio</h2>
 
@@ -66,8 +65,17 @@ function Portfolio() {
             </div>
             <h3>{title}</h3>
             <div className="portfolio_item-cta">
-            <a href={github} target='_blank' className='btn' rel="noreferrer">Github</a>
-            <a href={demo} target='_blank' className='btn btn-primary' rel="noreferrer">Live Demo</a>
+              <a href={github} target="_blank" className="btn" rel="noreferrer">
+                Github
+              </a>
+              <a
+                href={demo}
+                target="_blank"
+                className="btn btn-primary"
+                rel="noreferrer"
+              >
+                Live Demo
+              </a>
             </div>
           </article>
         ))}
