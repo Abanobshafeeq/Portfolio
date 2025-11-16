@@ -19,7 +19,7 @@ const portfolioData = [
     image: IMG2,
     title: 'Portfolio Abanoub Shafeeq USING React',
     github: 'https://github.com/Abanobshafeeq/Portfolio.git',
-    demo: 'https://portfolio-React-abanoub.netlify.app/',
+    demo: 'https://portfolio-React-abanoub2.netlify.app/',
   },
   {
     id: 3,
