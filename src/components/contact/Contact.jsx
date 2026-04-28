@@ -15,14 +15,14 @@ const ContactData = [
     link: 'mailto:test@gmail.com',
   },
   {
-    id: 1,
+    id: 2,
     icon: <RiMessengerLine />,
     title: 'Messenger',
     info: 'Abanoub Shafeeq',
     link: 'https://m.me/pop.top.9216778',
   },
   {
-    id: 1,
+    id: 3,
     icon: <BsWhatsapp />,
     title: 'WhatsApp',
     info: '01281809841',
