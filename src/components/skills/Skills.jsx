@@ -58,7 +58,7 @@ const SkillsData = [
   },
   {
     id: 10,
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
+    image: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg",
     title: 'TailwindCSS',
     disc: 'Styling',
   },
