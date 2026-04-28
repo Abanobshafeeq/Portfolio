@@ -21,32 +21,27 @@ const About = () => {
             <article className="about_card">
               <FaUserGraduate className="about_icon" />
               <h5>Bachelor's Degree</h5>
-              <small>in Computer Engineering</small> <br />
-              <small>Faculty of Engineering at Shoubra, Benha University</small>
+              <small>Computer Engineering</small> <br />
+              <small>Benha University</small>
             </article>
 
             <article className="about_card">
               <FaAward className="about_icon" />
               <h5>Experience</h5>
-              <small>3+ years working in Frontend</small>
+              <small>Frontend Developer</small> <br />
+              <small>Health Insights Group</small>
             </article>
 
             <article className="about_card">
               <VscFolderLibrary className="about_icon" />
               <h5>Projects</h5>
-              <small>30+ Completed</small>
+              <small>Production & Personal Projects</small>
             </article>
           </div>
 
           <p>
-            Front-End Developer with expertise in React.js and Next.js,
-            specializing in building responsive and scalable web applications.
-            Skilled in state management using Redux and Context API, client-side
-            routing, and seamless API integration. Strong foundation in modern
-            JavaScript , component-based architecture, and UI
-            optimization. Committed to writing clean, maintainable code and
-            delivering high-performance, user-focused solutions within agile
-            development environments.{' '}
+            Frontend Developer specializing in Angular and React, currently working at Health Insights Group on enterprise-level healthcare systems. Experienced in building scalable modules, implementing complex business logic, and integrating RESTful APIs in production environments.
+            Skilled in improving performance, fixing critical issues, and delivering clean, maintainable, and high-quality user interfaces.
           </p>
 
           <a href="#contact" className="btn btn-primary">
