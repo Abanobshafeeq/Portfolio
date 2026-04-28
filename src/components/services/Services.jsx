@@ -25,13 +25,7 @@ function Services() {
           </p>
         </article>
 
-        <article className="card">
-          <FaLayerGroup className='icon'/>
-          <h3>State Management</h3>
-          <p className='text-light'>
-            Manage complex application state using RxJS, Redux, and Context API.
-          </p>
-        </article>
+       
         <article className="card">
   <FaLayerGroup className='icon'/>
   <h3>Enterprise Applications</h3>
@@ -39,6 +33,13 @@ function Services() {
     Contribute to large-scale enterprise systems with modular architecture, complex business logic, and production-ready features.
   </p>
 </article>
+         <article className="card">
+          <FaLayerGroup className='icon'/>
+          <h3>State Management</h3>
+          <p className='text-light'>
+            Manage complex application state using RxJS, Redux, and Context API.
+          </p>
+        </article>
         <article className="card">
           <RiSmartphoneLine className='icon'/>
           <h3>Responsive Design</h3>
