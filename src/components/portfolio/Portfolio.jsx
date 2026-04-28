@@ -24,7 +24,7 @@ const portfolioData = [
     image: IMGST,
     title: 'Comprehensive Admin Dashboard & UI Showcase',
     github: 'https://github.com/Abanobshafeeq/Tasks-in-angular.git',
-    demo: 'https://portfolio-React-abanoub2.netlify.app/',
+    demo: 'https://dashboard-ui-showcase.netlify.app/dashboard',
   },
    {
     id: 3,
