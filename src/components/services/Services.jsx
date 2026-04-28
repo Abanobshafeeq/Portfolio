@@ -19,17 +19,17 @@ function Services() {
         
         <article className="card">
           <FaCode className='icon'/>
-          <h3>React & Next.js Development</h3>
+          <h3>Angular & React Development</h3>
           <p className='text-light'>
-            Build interactive and high-performance web apps using React and Next.js.
+            Build scalable, high-performance web applications using Angular and React in production environments.
           </p>
         </article>
 
         <article className="card">
           <FaLayerGroup className='icon'/>
-          <h3>State Management (Redux / Context API)</h3>
+          <h3>State Management</h3>
           <p className='text-light'>
-            Efficiently manage application state for complex web apps.
+            Manage complex application state using RxJS, Redux, and Context API.
           </p>
         </article>
 
@@ -37,7 +37,7 @@ function Services() {
           <RiSmartphoneLine className='icon'/>
           <h3>Responsive Design</h3>
           <p className='text-light'>
-            Ensure websites look perfect and function smoothly on all devices.
+            Deliver seamless and consistent user experiences across all devices and screen sizes.
           </p>
         </article>
 
@@ -45,7 +45,7 @@ function Services() {
           <SiGraphql className='icon'/>
           <h3>API Integration</h3>
           <p className='text-light'>
-            Connect front-end apps with backend services via RESTful APIs or GraphQL.
+            Integrate RESTful APIs and handle complex data flows within scalable systems.
           </p>
         </article>
 
@@ -53,23 +53,31 @@ function Services() {
           <MdDesignServices className='icon'/>
           <h3>UI / UX Design & Animation</h3>
           <p className='text-light'>
-            Create user-friendly interfaces with smooth animations and transitions.
+            Build intuitive user interfaces with smooth interactions and modern design principles.
           </p>
         </article>
 
         <article className="card">
           <IoIosRocket className='icon'/>
-          <h3>Code Optimization & Performance</h3>
+          <h3>Performance Optimization</h3>
           <p className='text-light'>
-            Enhance speed and efficiency for a seamless user experience.
+            Enhance application performance using lazy loading, efficient rendering, and best practices.
           </p>
         </article>
 
         <article className="card">
           <BiGitBranch className='icon'/>
-          <h3>Version Control (Git & GitHub)</h3>
+          <h3>Version Control</h3>
           <p className='text-light'>
-            Collaborate effectively with version control and team workflows.
+            Collaborate using Git and modern workflows to maintain clean and reliable codebases.
+          </p>
+        </article>
+
+        <article className="card">
+          <RiFocus2Line className='icon'/>
+          <h3>Clean Architecture</h3>
+          <p className='text-light'>
+            Write maintainable, scalable code following best practices and structured architecture patterns.
           </p>
         </article>
 
