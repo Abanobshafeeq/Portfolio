@@ -17,7 +17,7 @@ const portfolioData = [
     image: IMG1,
     title: 'E_Commerce USING REACT & vite & API',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-React.git',
-    demo: 'https://bebo-store-react-vite.netlify.app/',
+    demo: 'https://bebo-ecommerce-react-eta.vercel.app/',
   },
   {
     id: 2,
