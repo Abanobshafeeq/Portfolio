@@ -52,7 +52,7 @@ const portfolioData = [
     image: IMGParallex,
     title: 'Parallex Website',
     github: 'https://github.com/Abanobshafeeq/parallax-website.git',
-    demo: 'https://parallex-abanoub.netlify.app/',
+    demo: 'https://parallax-website-nine-silk.vercel.app/',
   },
   {
     id: 7,
