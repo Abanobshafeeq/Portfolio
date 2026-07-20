@@ -66,7 +66,7 @@ const portfolioData = [
     image: IMG3,
     title: 'Todo List App USING React',
     github: 'https://github.com/Abanobshafeeq/ToDo-List.git',
-    demo: 'https://todolist-abanoub.netlify.app/',
+    demo: 'https://to-do-list-six-liart-94.vercel.app/',
   },
   {
     id: 9,
