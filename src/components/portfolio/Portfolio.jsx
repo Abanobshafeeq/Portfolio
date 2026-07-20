@@ -18,7 +18,7 @@ const portfolioData = [
     image: IMGECA,
     title: 'E_Commerce USING Angular & API',
     github: 'https://github.com/Abanobshafeeq/E_Commerce-Angular.git',
-    demo: 'https://tasks-in-angular.vercel.app/dashboard',
+    demo: 'https://e-commerce-angular-sand.vercel.app/products',
   },
   {
     id: 2,
