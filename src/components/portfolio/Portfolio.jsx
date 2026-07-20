@@ -40,7 +40,7 @@ const portfolioData = [
     image: IMGTODO,
     title: 'Interactive Kanban Task Manager',
     github: 'https://github.com/Abanobshafeeq/ToDo-List-Angular.git',
-    demo: 'https://to-do-list-angular-mu.vercel.app/,
+    demo: 'https://to-do-list-angular-mu.vercel.app/',
   },
   {
     id: 5,
