@@ -87,7 +87,7 @@ const portfolioData = [
     image: IMG6,
     title: 'North Giza USING HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/V3.git',
-    demo: 'https://mahraganeltasbi7a.netlify.app/',
+    demo: 'https://v3-ten-sand.vercel.app/',
   },
 ];
 
