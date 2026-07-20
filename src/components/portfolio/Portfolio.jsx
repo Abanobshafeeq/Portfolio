@@ -9,81 +9,90 @@ import IMGTODO from '../../assets/TodoAngular.png';
 import IMGVezetta from '../../assets/vezetta.png';
 import IMGIphone from '../../assets/iphone.png';
 import IMGParallex from '../../assets/parallex.png';
+import IMGECA from '../../assets/EcomerceA.png';
 import './portfolio.css';
 
 const portfolioData = [
-  {
+   {
     id: 1,
+    image: IMGECA,
+    title: 'E_Commerce USING Angular & API',
+    github: 'https://github.com/Abanobshafeeq/E_Commerce-Angular.git',
+    demo: 'https://tasks-in-angular.vercel.app/dashboard',
+  },
+  {
+    id: 2,
     image: IMG1,
     title: 'E_Commerce USING REACT & vite & API',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-React.git',
     demo: 'https://bebo-ecommerce-react-eta.vercel.app/',
   },
+  
   {
-    id: 2,
+    id: 3,
     image: IMGST,
     title: 'Comprehensive Admin Dashboard & UI Showcase',
     github: 'https://github.com/Abanobshafeeq/Tasks-in-angular.git',
     demo: 'https://tasks-in-angular.vercel.app/dashboard',
   },
    {
-    id: 3,
+    id: 4,
     image: IMGTODO,
     title: 'Interactive Kanban Task Manager',
     github: 'https://github.com/Abanobshafeeq/ToDo-List-Angular.git',
     demo: 'https://to-do-list-angular-mu.vercel.app/,
   },
   {
-    id: 4,
+    id: 5,
     image: IMGVezetta,
     title: 'Vezeeta Landing Page',
     github: 'https://github.com/Abanobshafeeq/Vezeeta.git',
     demo: 'https://vezeeta-three.vercel.app/',
   },
   {
-    id: 5,
+    id: 6,
     image: IMGIphone,
     title: 'iPhone 17 landing page',
     github: 'https://github.com/Abanobshafeeq/iphone-17.git',
     demo: 'https://iphone-17-seven.vercel.app/',
   },
   {
-    id: 6,
+    id: 7,
     image: IMGParallex,
     title: 'Parallex Website',
     github: 'https://github.com/Abanobshafeeq/parallax-website.git',
     demo: 'https://parallax-website-nine-silk.vercel.app/',
   },
   {
-    id: 7,
+    id: 8,
     image: IMG2,
     title: 'Portfolio Abanoub Shafeeq USING React',
     github: 'https://github.com/Abanobshafeeq/Portfolio.git',
     demo: 'https://abanoub-shafeeq-frontend-developer.netlify.app/',
   },
   {
-    id: 8,
+    id: 9,
     image: IMG3,
     title: 'Todo List App USING React',
     github: 'https://github.com/Abanobshafeeq/ToDo-List.git',
     demo: 'https://to-do-list-six-liart-94.vercel.app/',
   },
   {
-    id: 9,
+    id: 10,
     image: IMG4,
     title: 'Weather App USING React & API',
     github: 'https://github.com/Abanobshafeeq/WeatherApi-using-React.git',
     demo: 'https://weather-api-using-react-wheat.vercel.app/',
   },
   {
-    id: 10,
+    id: 11,
     image: IMG5,
     title: 'E-commerce Using HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-HTML.git',
     demo: 'https://bebo-ecommerce-html.vercel.app/',
   },
   {
-    id: 11,
+    id: 12,
     image: IMG6,
     title: 'North Giza USING HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/V3.git',
