@@ -80,7 +80,7 @@ const portfolioData = [
     image: IMG5,
     title: 'E-commerce Using HTML & CSS & JavaScript',
     github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-HTML.git',
-    demo: 'https://bebo-ecommerce-html.netlify.app/',
+    demo: 'https://bebo-ecommerce-html.vercel.app/',
   },
   {
     id: 11,
