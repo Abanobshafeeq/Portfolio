@@ -38,7 +38,7 @@ const portfolioData = [
     image: IMGVezetta,
     title: 'Vezeeta Landing Page',
     github: 'https://github.com/Abanobshafeeq/Vezeeta.git',
-    demo: 'https://vezeeta-landing-page.netlify.app/',
+    demo: 'https://vezeeta-three.vercel.app/',
   },
   {
     id: 5,
