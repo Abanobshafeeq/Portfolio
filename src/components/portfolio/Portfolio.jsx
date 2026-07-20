@@ -73,7 +73,7 @@ const portfolioData = [
     image: IMG4,
     title: 'Weather App USING React & API',
     github: 'https://github.com/Abanobshafeeq/WeatherApi-using-React.git',
-    demo: 'https://weather-app-api-abanoub.netlify.app/',
+    demo: 'https://weather-api-using-react-wheat.vercel.app/',
   },
   {
     id: 10,
