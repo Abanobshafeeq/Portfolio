@@ -45,7 +45,7 @@ const portfolioData = [
     image: IMGIphone,
     title: 'iPhone 17 landing page',
     github: 'https://github.com/Abanobshafeeq/iphone-17.git',
-    demo: 'https://iphone-landing-page-abanoub.netlify.app/',
+    demo: 'https://iphone-17-seven.vercel.app/',
   },
   {
     id: 6,
