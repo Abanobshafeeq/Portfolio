@@ -6,7 +6,7 @@
 .about_content .section_heading { margin-bottom: 0.8rem; }
 .about_content h2 { color: var(--color-primary); font-size: 1.45rem; }
 .about_copy p { font-size: 1rem; color: #e0e7f1; line-height: 1.6; }
-.about_copy .about_education { color: var(--color-light); font-size: 0.875rem; margin-top: 0.65rem; }
+.about_copy p + p { margin-top: 1rem; }
 .about_action { margin-top: 0.9rem; }
 .about_action .btn { min-height: 40px; padding: 0.45rem 1.15rem; font-size: 0.875rem; }
 @media (max-width: 1050px) { .about_container { grid-template-columns: 125px minmax(0, 1fr); gap: 1.1rem; } .about_skills { gap: 1.4rem; } }
