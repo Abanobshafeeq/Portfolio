@@ -22,8 +22,8 @@
 .contact_form-motion { display: flex; min-width: 0; }
 .contact_container form { display: flex; flex: 1; flex-direction: column; min-width: 0; gap: 1.1rem; }
 .form_field { display: grid; gap: 0.4rem; }
-.form_field--message { display: flex; flex: 1; flex-direction: column; }
-.form_field--message textarea { flex: 1; }
+.form_field--message { display: flex; flex: 1 0 auto; flex-direction: column; }
+.form_field--message textarea { flex: 1 0 auto; }
 .form_field label { font-size: 0.9375rem; }
 .form_field input, .form_field textarea { width: 100%; border: 1px solid rgba(130, 177, 227, 0.45); border-radius: 0.6rem; background: rgba(43, 58, 84, 0.5); padding: 0.85rem 1rem; color: var(--color-white); transition: border-color var(--transition), background var(--transition); }
 .form_field input:hover, .form_field textarea:hover, .form_field input:focus, .form_field textarea:focus { border-color: var(--color-primary); }
