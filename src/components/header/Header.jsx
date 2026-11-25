@@ -9,16 +9,18 @@ function Header() {
     <header id="home" aria-labelledby="hero-name">
       <div className="container header_container">
 
-        <p className="hero_greeting hero_enter">Hello, I'm</p>
-        <h1 id="hero-name" className="hero_enter">Abanoub Shafeeq</h1>
-        <p className="hero_role hero_enter">Frontend Developer <span>(Angular & React)</span></p>
+        <p className="hero_greeting">Hello, I'm</p>
+        <h1 id="hero-name">Abanoub Shafeeq</h1>
+        <p className="hero_role">Frontend Developer <span>(Angular & React)</span></p>
         
         <CTA />
         <Social />
 
-        <div className="hero_portrait hero_enter">
-          <div className="me">
-            <img src={ME} alt="Abanoub Shafeeq" width="427" height="522" />
+        <div className="hero_portrait">
+          <div className="hero_parallax">
+            <div className="me">
+              <img src={ME} alt="Abanoub Shafeeq" width="427" height="522" />
+            </div>
           </div>
         </div>
 

@@ -3,9 +3,9 @@ import CV from '../../assets/Abanoub Shafeeq.pdf'
 
 const CTA = () => {
   return (
-    <div className='cta hero_enter'>
-      <a href={CV} download className='btn'>Download CV</a>
-      <a href="#contact" className='btn btn-primary'>Let's Talk</a>
+    <div className='cta'>
+      <span className="motion-button"><a href={CV} download className='btn'>Download CV</a></span>
+      <span className="motion-button"><a href="#contact" className='btn btn-primary'>Let's Talk</a></span>
     </div>
   )
 }

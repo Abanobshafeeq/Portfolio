@@ -7,6 +7,7 @@ import Next from '../../assets/Nextjs.svg';
 import Tailwind from '../../assets/tailwindcss.svg';
 import Material from '../../assets/material-ui.svg';
 import SectionHeading from '../SectionHeading';
+import MotionCard from '../MotionCard';
 import './skills.css';
 
 const skills = [
@@ -28,9 +29,9 @@ function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-title">
       <SectionHeading eyebrow="What Skills I Have" title="My Experience" id="skills-title" />
-      <div className="container container_skills">
+      <div className="container container_skills" data-motion-grid="skills">
         {skills.map(({ title, disc, image, Icon, color }) => (
-          <article className="card_skill surface-card" key={title} data-reveal>
+          <MotionCard className="card_skill surface-card" key={title}>
             <div className="icon" aria-hidden="true">
               {image ? <img src={image} className={title === 'Next.js' ? 'skill_logo-light' : undefined} alt="" loading="lazy" width="36" height="36" /> : <Icon style={{ color }} />}
             </div>
@@ -38,7 +39,7 @@ function Skills() {
               <h3>{title}</h3>
               <p className="text-light">{disc}</p>
             </div>
-          </article>
+          </MotionCard>
         ))}
       </div>
     </section>

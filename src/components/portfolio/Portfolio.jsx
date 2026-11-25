@@ -12,6 +12,7 @@ import IMGParallex from '../../assets/parallex.png';
 import IMGECA from '../../assets/EcomerceA.png';
 import './portfolio.css';
 import SectionHeading from '../SectionHeading';
+import MotionCard from '../MotionCard';
 
 const portfolioData = [
    {
@@ -106,11 +107,11 @@ function Portfolio() {
     <section id="portfolio" aria-labelledby="portfolio-title">
       <SectionHeading eyebrow="My Recent Work" title="Portfolio" id="portfolio-title" />
 
-      <div className="container portfolio_container">
+      <div className="container portfolio_container" data-motion-grid="projects">
         {portfolioData.map(({ id, image, title, github, demo }) => (
-          <article key={id} className="portfolio_item surface-card" data-reveal>
+          <MotionCard key={id} className="portfolio_item surface-card">
             <div className="portfolio_item-img">
-              <img src={image} alt={`${title} screenshot`} loading="lazy" />
+              <div className="portfolio_image-motion"><img src={image} alt={`${title} screenshot`} loading="lazy" /></div>
             </div>
             <h3>{title}</h3>
             <div className="portfolio_item-cta">
@@ -127,7 +128,7 @@ function Portfolio() {
                 Live Demo
               </a>
             </div>
-          </article>
+          </MotionCard>
         ))}
       </div>
     </section>

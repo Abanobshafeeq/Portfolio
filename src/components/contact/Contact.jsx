@@ -4,6 +4,7 @@ import { RiMessengerLine } from 'react-icons/ri';
 import { useEffect, useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import SectionHeading from '../SectionHeading';
+import MotionCard from '../MotionCard';
 import './contact.css';
 
 const contactData = [
@@ -45,18 +46,19 @@ function Contact() {
     <section id="contact" aria-labelledby="contact-title">
       <SectionHeading eyebrow="Get In Touch" title="Contact Me" id="contact-title" />
       <div className="container contact_container">
-        <div className="contact_options">
+        <div className="contact_options" data-motion-grid="contact">
           {contactData.map(({ id, icon, title, info, link }) => (
-            <article key={id} className="contact_option surface-card" data-reveal>
+            <MotionCard key={id} className="contact_option surface-card">
               <div className="contact_icon" aria-hidden="true">{icon}</div>
               <div className="contact_details">
                 <h3>{title}</h3>
                 <p>{info}</p>
                 <a className="text-link" href={link} target={title === 'Email' ? undefined : '_blank'} rel="noreferrer">Send Message</a>
               </div>
-            </article>
+            </MotionCard>
           ))}
         </div>
+        <div className="contact_form-motion">
         <form ref={form} onSubmit={sendEmail} aria-busy={status === 'sending'}>
           <div className="form_field">
             <label htmlFor="contact-name">Your Full Name</label>
@@ -79,6 +81,7 @@ function Contact() {
             {status === 'sending' ? 'Sending…' : 'Send Message'}
           </button>
         </form>
+        </div>
       </div>
     </section>
   );
