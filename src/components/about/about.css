@@ -1,14 +1,17 @@
-.about_skills { display: grid; grid-template-columns: 1.12fr 1fr; gap: 2rem; margin-top: 0.5rem; }
-.about_container { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
-.about_me { width: 100%; overflow: hidden; border-radius: 0.85rem; border: 1px solid rgba(105, 202, 255, 0.65); background: linear-gradient(180deg, #49b2eb 0%, #3288bd 50%, #222b45 100%); box-shadow: 0 8px 24px rgba(12, 24, 51, 0.15); }
+.about_skills { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); align-items: start; gap: 2rem; margin-top: 0.5rem; }
+.about_section .section_heading { margin-bottom: 1rem; }
+.about_section h2 { color: var(--color-primary); font-size: 1.45rem; }
+.about_container { display: grid; gap: 1rem; }
+.about_intro { display: flex; align-items: center; gap: 1.125rem; }
+.about_intro-copy { min-width: 0; }
+.about_intro-copy h3 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+.about_intro-copy p { color: var(--color-primary); font-size: 1rem; }
+.about_me { flex: 0 0 80px; width: 80px; overflow: hidden; border-radius: 0.85rem; border: 1px solid rgba(105, 202, 255, 0.65); background: linear-gradient(180deg, #49b2eb 0%, #3288bd 50%, #222b45 100%); box-shadow: 0 8px 24px rgba(12, 24, 51, 0.15); }
 .about_me-image { position: relative; aspect-ratio: 4 / 5; }
-.about_me-image img { position: absolute; bottom: 0; left: 0; width: 100%; height: calc(100% - 0.85rem); object-fit: contain; object-position: center bottom; }
-.about_content .section_heading { margin-bottom: 0.8rem; }
-.about_content h2 { color: var(--color-primary); font-size: 1.45rem; }
-.about_copy p { font-size: 1rem; color: #e0e7f1; line-height: 1.6; }
+.about_me-image img { position: absolute; bottom: 0; left: 0; width: 100%; height: calc(100% - 0.5rem); object-fit: contain; object-position: center bottom; }
+.about_copy p { font-size: 1rem; color: #d3dceb; line-height: 1.7; }
 .about_copy p + p { margin-top: 1rem; }
-.about_action { margin-top: 0.9rem; }
+.about_action { margin-top: 1rem; }
 .about_action .btn { min-height: 40px; padding: 0.45rem 1.15rem; font-size: 0.875rem; }
-@media (max-width: 1050px) { .about_container { grid-template-columns: 125px minmax(0, 1fr); gap: 1.1rem; } .about_skills { gap: 1.4rem; } }
-@media (max-width: 900px) { .about_skills { grid-template-columns: 1fr; gap: 0.5rem; } .about_container { grid-template-columns: 150px minmax(0, 1fr); gap: 1.5rem; } }
-@media (max-width: 480px) { .about_container { grid-template-columns: 1fr; } .about_me { max-width: 180px; } .about_copy p { font-size: 1rem; } }
+@media (max-width: 1024px) { .about_skills { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; } }
+@media (max-width: 540px) { .about_intro-copy h3 { font-size: 1.15rem; } }
