@@ -82,7 +82,7 @@ function Contact() {
                 <label htmlFor="contact-email">Your Email</label>
                 <input id="contact-email" type="email" name="email" autoComplete="email" placeholder="you@example.com" required />
               </div>
-              <div className="form_field">
+              <div className="form_field form_field--message">
                 <label htmlFor="contact-message">Your Message</label>
                 <textarea id="contact-message" name="message" rows={6} placeholder="What would you like to work on together?" required />
               </div>
