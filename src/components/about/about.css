@@ -1,30 +1,14 @@
-.about_container { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.5fr); gap: 4.5rem; align-items: center; }
-.about_me {
-  width: 100%;
-  max-width: 340px;
-  margin-inline: auto;
-  overflow: hidden;
-  border-radius: 1.25rem;
-  border: 1px solid rgba(77, 181, 255, 0.28);
-  background: linear-gradient(180deg, #49b2eb 0%, #3288bd 50%, #222b45 100%);
-  box-shadow: 0 12px 32px rgba(12, 24, 51, 0.18);
-}
+.about_skills { display: grid; grid-template-columns: 1.12fr 1fr; gap: 2rem; margin-top: 0.5rem; }
+.about_container { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.about_me { width: 100%; overflow: hidden; border-radius: 0.85rem; border: 1px solid rgba(105, 202, 255, 0.65); background: linear-gradient(180deg, #49b2eb 0%, #3288bd 50%, #222b45 100%); box-shadow: 0 8px 24px rgba(12, 24, 51, 0.15); }
 .about_me-image { position: relative; aspect-ratio: 4 / 5; }
-.about_me-image img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: calc(100% - clamp(1.25rem, 3vw, 1.75rem));
-  object-fit: contain;
-  object-position: center bottom;
-}
-.about_cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem; }
-.about_card { padding: 1.25rem 0.8rem; text-align: center; }
-.about_icon { color: var(--color-primary); font-size: 1.65rem; margin-bottom: 0.8rem; }
-.about_card h3 { font-size: 0.9375rem; margin-bottom: 0.4rem; }
-.about_card small { color: var(--color-light); font-size: 0.875rem; line-height: 1.65; }
-.about_content p { margin: 1.5rem 0 1.75rem; color: var(--color-light); }
-@media (max-width: 1024px) { .about_container { gap: 2rem; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); } .about_cards { gap: 0.6rem; } .about_card { padding: 1rem 0.6rem; } }
-@media (max-width: 800px) { .about_container { grid-template-columns: 1fr; gap: 2rem; } .about_me { max-width: 280px; } }
-@media (max-width: 420px) { .about_cards { grid-template-columns: 1fr; } .about_card { padding: 1.25rem; } .about_icon { margin-bottom: 0.5rem; } }
+.about_me-image img { position: absolute; bottom: 0; left: 0; width: 100%; height: calc(100% - 0.85rem); object-fit: contain; object-position: center bottom; }
+.about_content .section_heading { margin-bottom: 0.8rem; }
+.about_content h2 { color: var(--color-primary); font-size: 1.45rem; }
+.about_copy p { font-size: 1rem; color: #e0e7f1; line-height: 1.6; }
+.about_copy .about_education { color: var(--color-light); font-size: 0.875rem; margin-top: 0.65rem; }
+.about_action { margin-top: 0.9rem; }
+.about_action .btn { min-height: 40px; padding: 0.45rem 1.15rem; font-size: 0.875rem; }
+@media (max-width: 1050px) { .about_container { grid-template-columns: 125px minmax(0, 1fr); gap: 1.1rem; } .about_skills { gap: 1.4rem; } }
+@media (max-width: 900px) { .about_skills { grid-template-columns: 1fr; gap: 0.5rem; } .about_container { grid-template-columns: 150px minmax(0, 1fr); gap: 1.5rem; } }
+@media (max-width: 480px) { .about_container { grid-template-columns: 1fr; } .about_me { max-width: 180px; } .about_copy p { font-size: 1rem; } }

@@ -1,135 +1,120 @@
-import IMG1 from '../../assets/1.png';
-import IMG2 from '../../assets/2.png';
-import IMG3 from '../../assets/3.png';
-import IMG4 from '../../assets/4.png';
-import IMG5 from '../../assets/5.png';
-import IMG6 from '../../assets/6.png';
-import IMGST from '../../assets/SeveralTasks.png';
-import IMGTODO from '../../assets/TodoAngular.png';
-import IMGVezetta from '../../assets/vezetta.png';
-import IMGIphone from '../../assets/iphone.png';
-import IMGParallex from '../../assets/parallex.png';
-import IMGECA from '../../assets/EcomerceA.png';
-import './portfolio.css';
+import { useLayoutEffect, useRef, useState } from 'react';
+import { FiGithub } from 'react-icons/fi';
+import { gsap } from 'gsap';
+import { projects, projectFilters } from '../../data/projects';
+import useReducedMotion from '../../hooks/useReducedMotion';
 import SectionHeading from '../SectionHeading';
 import MotionCard from '../MotionCard';
+import './portfolio.css';
 
-const portfolioData = [
-   {
-    id: 1,
-    image: IMGECA,
-    title: 'E_Commerce USING Angular & API',
-    github: 'https://github.com/Abanobshafeeq/E_Commerce-Angular.git',
-    demo: 'https://e-commerce-angular-sand.vercel.app/products',
-  },
-  {
-    id: 2,
-    image: IMG1,
-    title: 'E_Commerce USING REACT & vite & API',
-    github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-React.git',
-    demo: 'https://bebo-ecommerce-react-eta.vercel.app/',
-  },
-  
-  {
-    id: 3,
-    image: IMGST,
-    title: 'Comprehensive Admin Dashboard & UI Showcase',
-    github: 'https://github.com/Abanobshafeeq/Tasks-in-angular.git',
-    demo: 'https://tasks-in-angular.vercel.app/dashboard',
-  },
-   {
-    id: 4,
-    image: IMGTODO,
-    title: 'Interactive Kanban Task Manager',
-    github: 'https://github.com/Abanobshafeeq/ToDo-List-Angular.git',
-    demo: 'https://to-do-list-angular-mu.vercel.app/',
-  },
-  {
-    id: 5,
-    image: IMGVezetta,
-    title: 'Vezeeta Landing Page',
-    github: 'https://github.com/Abanobshafeeq/Vezeeta.git',
-    demo: 'https://vezeeta-three.vercel.app/',
-  },
-  {
-    id: 6,
-    image: IMGIphone,
-    title: 'iPhone 17 landing page',
-    github: 'https://github.com/Abanobshafeeq/iphone-17.git',
-    demo: 'https://iphone-17-seven.vercel.app/',
-  },
-  {
-    id: 7,
-    image: IMGParallex,
-    title: 'Parallex Website',
-    github: 'https://github.com/Abanobshafeeq/parallax-website.git',
-    demo: 'https://parallax-website-nine-silk.vercel.app/',
-  },
-  {
-    id: 8,
-    image: IMG2,
-    title: 'Portfolio Abanoub Shafeeq USING React',
-    github: 'https://github.com/Abanobshafeeq/Portfolio.git',
-    demo: 'https://portfolio-psi-brown-32.vercel.app/',
-  },
-  {
-    id: 9,
-    image: IMG3,
-    title: 'Todo List App USING React',
-    github: 'https://github.com/Abanobshafeeq/ToDo-List.git',
-    demo: 'https://to-do-list-six-liart-94.vercel.app/',
-  },
-  {
-    id: 10,
-    image: IMG4,
-    title: 'Weather App USING React & API',
-    github: 'https://github.com/Abanobshafeeq/WeatherApi-using-React.git',
-    demo: 'https://weather-api-using-react-wheat.vercel.app/',
-  },
-  {
-    id: 11,
-    image: IMG5,
-    title: 'E-commerce Using HTML & CSS & JavaScript',
-    github: 'https://github.com/Abanobshafeeq/Bebo-Ecommerce-HTML.git',
-    demo: 'https://bebo-ecommerce-html.vercel.app/',
-  },
-  {
-    id: 12,
-    image: IMG6,
-    title: 'North Giza USING HTML & CSS & JavaScript',
-    github: 'https://github.com/Abanobshafeeq/V3.git',
-    demo: 'https://v3-ten-sand.vercel.app/',
-  },
-];
+function ProjectCard({ project, featured = false }) {
+  const { id, image, title, tags, description, github, demo, category } = project;
+  return (
+    <MotionCard className={'portfolio_item surface-card' + (featured ? ' portfolio_item--featured' : '')} wrapperClass={featured ? 'project_featured' : ''} data-project-id={id} data-category={category}>
+      <div className="portfolio_item-img">
+        <div className="portfolio_image-motion"><img src={image} alt={title + ' screenshot'} loading="lazy" /></div>
+      </div>
+      <div className="project_copy">
+        <h3>{title}</h3>
+        <ul className="project_tags" aria-label="Technologies">{tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
+        <p>{description}</p>
+        <div className="portfolio_item-cta">
+          <a href={demo} target="_blank" rel="noreferrer" className="btn btn-primary" aria-label={'Live Demo of ' + title + ' (opens in a new tab)'}>Live Demo</a>
+          <a href={github} target="_blank" rel="noreferrer" className="btn" aria-label={'GitHub source for ' + title + ' (opens in a new tab)'}><FiGithub aria-hidden="true" />GitHub</a>
+        </div>
+      </div>
+    </MotionCard>
+  );
+}
 
 function Portfolio() {
-  return (
-    <section id="portfolio" aria-labelledby="portfolio-title">
-      <SectionHeading eyebrow="My Recent Work" title="Portfolio" id="portfolio-title" />
+  const [filter, setFilter] = useState('All');
+  const [selected, setSelected] = useState('All');
+  const root = useRef();
+  const collection = useRef();
+  const context = useRef();
+  const tween = useRef();
+  const currentFilter = useRef('All');
+  const previousFilter = useRef('All');
+  const reduced = useReducedMotion();
+  const visible = projects.filter(project => filter === 'All' || project.category === filter);
+  const featured = visible.slice(0, 3);
+  const remaining = visible.slice(3);
 
-      <div className="container portfolio_container" data-motion-grid="projects">
-        {portfolioData.map(({ id, image, title, github, demo }) => (
-          <MotionCard key={id} className="portfolio_item surface-card">
-            <div className="portfolio_item-img">
-              <div className="portfolio_image-motion"><img src={image} alt={`${title} screenshot`} loading="lazy" /></div>
+  useLayoutEffect(() => {
+    context.current = gsap.context(() => {}, root);
+    return () => context.current.revert();
+  }, []);
+
+  const enter = () => {
+    if (reduced) {
+      gsap.set(collection.current, { clearProps: 'transform,opacity' });
+      return;
+    }
+    context.current.add(() => {
+      tween.current = gsap.fromTo(collection.current, { opacity: 0, y: 12 }, {
+        opacity: 1, y: 0, duration: 0.32, ease: 'power2.out', clearProps: 'transform,opacity',
+      });
+    });
+  };
+
+  useLayoutEffect(() => {
+    currentFilter.current = filter;
+    if (previousFilter.current !== filter) {
+      if (reduced) gsap.set(collection.current, { clearProps: 'transform,opacity' });
+      else {
+        context.current.add(() => {
+          tween.current = gsap.fromTo(collection.current, { opacity: 0, y: 12 }, {
+            opacity: 1, y: 0, duration: 0.32, ease: 'power2.out', clearProps: 'transform,opacity',
+          });
+        });
+      }
+      previousFilter.current = filter;
+      root.current.dispatchEvent(new CustomEvent('portfolio:layout-change', { bubbles: true }));
+    }
+    if (reduced) {
+      tween.current?.kill();
+      gsap.set(collection.current, { clearProps: 'transform,opacity' });
+      if (filter !== selected) setFilter(selected);
+    }
+  }, [filter, reduced, selected]);
+
+  const choose = (next) => {
+    setSelected(next);
+    tween.current?.kill();
+    if (reduced) { setFilter(next); return; }
+    context.current.add(() => {
+      tween.current = gsap.to(collection.current, {
+        opacity: 0, y: 8, duration: 0.14, ease: 'power1.in',
+        onComplete: () => {
+          if (next === currentFilter.current) enter();
+          else setFilter(next);
+        },
+      });
+    });
+  };
+
+  return (
+    <section id="portfolio" className="container portfolio_section" ref={root} aria-labelledby="portfolio-title" tabIndex={-1}>
+      <div className="projects_heading-row">
+        <SectionHeading title="Selected Projects" id="portfolio-title" />
+        <div className="project_filters" role="group" aria-label="Filter projects">
+          {projectFilters.map(option => <button key={option} type="button" aria-pressed={selected === option} onClick={() => choose(option)}>{option}</button>)}
+        </div>
+      </div>
+      <p className="sr-only" role="status" aria-live="polite">{visible.length} {filter === 'All' ? '' : filter + ' '}projects shown.</p>
+      <div className="project_collection-motion" ref={collection}>
+        <div className="project_showcase" data-motion-grid="projects">
+          {featured.map((project, index) => <ProjectCard key={project.id} project={project} featured={index === 0} />)}
+        </div>
+        {remaining.length > 0 && (
+          <div className="more_projects">
+            <h3 className="more_projects-title">More Projects</h3>
+            <div className="portfolio_container" data-motion-grid="projects">
+              {remaining.map(project => <ProjectCard key={project.id} project={project} />)}
             </div>
-            <h3>{title}</h3>
-            <div className="portfolio_item-cta">
-              <a href={github} target="_blank" className="btn" rel="noreferrer" aria-label={`GitHub source for ${title} (opens in a new tab)`}>
-                GitHub
-              </a>
-              <a
-                href={demo}
-                target="_blank"
-                className="btn btn-primary"
-                rel="noreferrer"
-                aria-label={`Live demo of ${title} (opens in a new tab)`}
-              >
-                Live Demo
-              </a>
-            </div>
-          </MotionCard>
-        ))}
+          </div>
+        )}
       </div>
     </section>
   );

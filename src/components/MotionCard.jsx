@@ -1,8 +1,7 @@
-// The grid item stays still for ScrollTrigger; its child reveals independently
-// of the article's existing hover and focus transforms.
-function MotionCard({ className, children }) {
+// Static grid and reveal layers keep scroll, filtering, and hover transforms apart.
+function MotionCard({ className, wrapperClass = '', children, ...props }) {
   return (
-    <div className="motion-card">
+    <div className={'motion-card ' + wrapperClass} {...props}>
       <div className="motion-card_reveal">
         <article className={className}>{children}</article>
       </div>

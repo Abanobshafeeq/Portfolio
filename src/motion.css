@@ -1,36 +1,7 @@
 .motion-card, .motion-card_reveal { display: grid; min-width: 0; }
 .motion-button { display: inline-flex; }
 .portfolio_image-motion { width: 100%; height: 100%; }
-.about_copy { display: flow-root; }
-#about { overflow-x: clip; }
-
-.reading-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 90;
-  width: 100%;
-  height: 3px;
-  background: var(--color-primary);
-  transform: scaleX(0);
-  transform-origin: left center;
-  pointer-events: none;
-}
-
-.surface-card:focus-within {
-  transform: translateY(-5px);
-  border-color: rgba(77, 181, 255, 0.65);
-  box-shadow: 0 12px 30px rgba(8, 18, 40, 0.18), 0 0 20px rgba(77, 181, 255, 0.05);
-}
-.btn:focus-visible {
-  background: rgba(77, 181, 255, 0.1);
-  color: var(--color-cyan);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(77, 181, 255, 0.1);
-}
-.btn-primary:focus-visible { background: #80ceff; color: #142338; }
-.portfolio_item-img img { transition-duration: 250ms; }
-
+.reading-progress { position: fixed; top: 0; left: 0; z-index: 90; width: 100%; height: 3px; background: var(--color-primary); transform: scaleX(0); transform-origin: left center; pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .surface-card:hover, .surface-card:focus-within,
   .btn:hover, .btn:focus-visible,

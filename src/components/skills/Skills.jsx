@@ -27,17 +27,16 @@ const skills = [
 
 function Skills() {
   return (
-    <section id="skills" aria-labelledby="skills-title">
-      <SectionHeading eyebrow="What Skills I Have" title="My Experience" id="skills-title" />
-      <div className="container container_skills" data-motion-grid="skills">
-        {skills.map(({ title, disc, image, Icon, color }) => (
+    <section id="skills" className="skills_section" aria-labelledby="skills-title" tabIndex={-1}>
+      <SectionHeading title="My Skills" id="skills-title" />
+      <div className="container_skills" data-motion-grid="skills">
+        {skills.map(({ title, image, Icon, color }) => (
           <MotionCard className="card_skill surface-card" key={title}>
             <div className="icon" aria-hidden="true">
               {image ? <img src={image} className={title === 'Next.js' ? 'skill_logo-light' : undefined} alt="" loading="lazy" width="36" height="36" /> : <Icon style={{ color }} />}
             </div>
             <div className="content">
               <h3>{title}</h3>
-              <p className="text-light">{disc}</p>
             </div>
           </MotionCard>
         ))}

@@ -11,7 +11,7 @@ const STAGGER = 0.085;
 // The outer grid items never transform, so trigger positions stay stable.
 function visibleRows(grid) {
   const rows = [];
-  Array.from(grid.children).forEach((item) => {
+  Array.from(grid.children).filter((item) => item.classList.contains('motion-card') && item.offsetParent !== null).forEach((item) => {
     const last = rows[rows.length - 1];
     if (last && Math.abs(last[0].offsetTop - item.offsetTop) < 2) last.push(item);
     else rows.push([item]);
@@ -72,7 +72,7 @@ export default function usePortfolioMotion() {
             }, at);
           };
 
-          const once = (trigger, elements, build, id) => {
+          const once = (trigger, elements, build, id, start = ENTER) => {
             const pending = elements.filter((element) => element && !played.has(element));
             if (!pending.length) return;
             const initialBounds = trigger.getBoundingClientRect();
@@ -86,7 +86,7 @@ export default function usePortfolioMotion() {
               id,
               trigger,
               animation: timeline,
-              start: ENTER,
+              start,
               once: true,
               toggleActions: 'play none none none',
             });
@@ -98,7 +98,7 @@ export default function usePortfolioMotion() {
           const heroTargets = [
             hero.querySelector('.hero_greeting'),
             hero.querySelector('h1'),
-            hero.querySelector('.hero_role'),
+            hero.querySelector('.hero_description'),
             ...hero.querySelectorAll('.cta .motion-button'),
             portrait,
           ];
@@ -136,7 +136,7 @@ export default function usePortfolioMotion() {
             const title = heading.querySelector('h2');
             const underline = heading.querySelector('.section_underline');
             once(heading, [label, title, underline], (timeline) => {
-              rise(timeline, [label], { y: 16, duration: 0.45 });
+              if (label) rise(timeline, [label], { y: 16, duration: 0.45 });
               rise(timeline, [title], { y: 28, duration: 0.7 }, 0.1);
               timeline.fromTo(underline, { scaleX: 0 }, {
                 scaleX: 1, duration: 0.6, ease: 'power3.out', clearProps: 'transform',
@@ -144,22 +144,24 @@ export default function usePortfolioMotion() {
             }, 'heading-' + title.id);
           });
 
-          const mobile = window.innerWidth <= 800;
+          const mobile = window.innerWidth <= 900;
           const photo = root.querySelector('.about_me');
           once(root.querySelector('.about_container'), [photo], (timeline) => {
             rise(timeline, [photo], { x: mobile ? 0 : -44, y: mobile ? 38 : 0, duration: 0.8 });
           }, 'about-photo');
 
-          const aboutContent = root.querySelector('.about_content-motion');
+          const aboutContent = root.querySelector('.about_content');
           if (!mobile) {
-            once(root.querySelector('.about_content'), [aboutContent], (timeline) => {
+            once(root.querySelector('.about_section'), [aboutContent], (timeline) => {
               timeline.fromTo(aboutContent, { x: 44 }, {
                 x: 0, duration: 0.75, ease: 'power3.out', clearProps: 'transform',
               });
             }, 'about-content');
           }
 
-          root.querySelectorAll('[data-motion-grid]').forEach((grid) => {
+          root.querySelectorAll('[data-motion-grid]').forEach((grid, gridIndex) => {
+            const disclosure = grid.closest('details');
+            if (disclosure && !disclosure.open) return;
             const kind = grid.dataset.motionGrid;
             visibleRows(grid).forEach((row, index) => {
               const targets = row.map((item) => item.querySelector('.motion-card_reveal'));
@@ -188,13 +190,13 @@ export default function usePortfolioMotion() {
                     ease: 'power2.out', clearProps: 'transform',
                   }, 0);
                 }
-              }, kind + '-row-' + index);
+              }, kind + '-' + gridIndex + '-row-' + index);
             });
           });
 
           const copy = root.querySelector('.about_copy');
-          once(copy, [copy.querySelector('p')], (timeline, targets) => {
-            rise(timeline, targets, { y: 24 }, 0.12);
+          once(copy, Array.from(copy.querySelectorAll('p')), (timeline, targets) => {
+            rise(timeline, targets, { y: 24, stagger: 0.07 }, 0.12);
           }, 'about-copy');
           const action = root.querySelector('.about_action');
           once(action, [action.querySelector('.motion-button')], (timeline, targets) => {
@@ -202,18 +204,30 @@ export default function usePortfolioMotion() {
           }, 'about-action');
 
           const formFrame = root.querySelector('.contact_form-motion');
-          once(formFrame, [formFrame.querySelector('form')], (timeline, targets) => {
+          if (formFrame.closest('details')?.open) once(formFrame, [formFrame.querySelector('form')], (timeline, targets) => {
             rise(timeline, targets, { y: 36, duration: 0.75 });
           }, 'contact-form');
 
+          const contact = root.querySelector('.contact_callout');
+          once(root.querySelector('#contact'), [contact], (timeline, targets) => {
+            rise(timeline, targets, { y: 30, duration: 0.7 });
+          }, 'contact-callout');
+          const strip = root.querySelector('.technology_strip');
+          once(strip, Array.from(strip.children), (timeline, targets) => {
+            rise(timeline, targets, { y: 16, duration: 0.5, stagger: 0.07 });
+          }, 'technology-strip');
+
           root.querySelectorAll('footer .container > *').forEach((element, index) => {
-            once(element, [element], (timeline, targets) => {
-              rise(timeline, targets, {
-                y: index === 3 ? 14 : 24,
-                scale: element.classList.contains('footer_socials') ? 0.96 : 1,
-                duration: 0.6,
+            once(root.querySelector('footer'), [element], (timeline, targets) => {
+              // Keep footer content visible even if its scroll trigger never fires.
+              timeline.fromTo(targets, { y: 12 }, {
+                y: 0,
+                duration: 0.45,
+                ease: 'power3.out',
+                immediateRender: false,
+                clearProps: 'transform',
               }, index * 0.04);
-            }, 'footer-' + index);
+            }, 'footer-' + index, 'top bottom');
           });
         });
       } catch (error) {
@@ -242,6 +256,7 @@ export default function usePortfolioMotion() {
       initialize();
       refresh();
     };
+    const onLayoutChange = () => { initialize(); refresh(); };
     const onFocus = (event) => {
       // Tabbing to a link or field never waits for its entrance animation.
       let element = event.target;
@@ -256,11 +271,9 @@ export default function usePortfolioMotion() {
     };
 
     initialize();
-    const images = Array.from(root.querySelectorAll('img'));
-    images.forEach((image) => {
-      image.addEventListener('load', refresh);
-      image.addEventListener('error', refresh);
-    });
+    root.addEventListener('load', refresh, true);
+    root.addEventListener('error', refresh, true);
+    root.addEventListener('portfolio:layout-change', onLayoutChange);
     document.fonts?.ready.then(() => { if (!disposed) refresh(); });
     document.fonts?.addEventListener('loadingdone', refresh);
     const observer = typeof ResizeObserver === 'undefined' ? null : new ResizeObserver(refresh);
@@ -276,10 +289,9 @@ export default function usePortfolioMotion() {
       cancelAnimationFrame(refreshFrame);
       context?.revert();
       observer?.disconnect();
-      images.forEach((image) => {
-        image.removeEventListener('load', refresh);
-        image.removeEventListener('error', refresh);
-      });
+      root.removeEventListener('load', refresh, true);
+      root.removeEventListener('error', refresh, true);
+      root.removeEventListener('portfolio:layout-change', onLayoutChange);
       document.fonts?.removeEventListener('loadingdone', refresh);
       window.removeEventListener('resize', onResize);
       window.removeEventListener('load', refresh);
