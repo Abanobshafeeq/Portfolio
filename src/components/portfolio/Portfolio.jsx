@@ -11,6 +11,7 @@ import IMGIphone from '../../assets/iphone.png';
 import IMGParallex from '../../assets/parallex.png';
 import IMGECA from '../../assets/EcomerceA.png';
 import './portfolio.css';
+import SectionHeading from '../SectionHeading';
 
 const portfolioData = [
    {
@@ -102,26 +103,26 @@ const portfolioData = [
 
 function Portfolio() {
   return (
-    <section id="portfolio">
-      <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <SectionHeading eyebrow="My Recent Work" title="Portfolio" id="portfolio-title" />
 
       <div className="container portfolio_container">
         {portfolioData.map(({ id, image, title, github, demo }) => (
-          <article key={id} className="portfolio_item">
+          <article key={id} className="portfolio_item surface-card" data-reveal>
             <div className="portfolio_item-img">
-              <img src={image} alt={title} />
+              <img src={image} alt={`${title} screenshot`} loading="lazy" />
             </div>
             <h3>{title}</h3>
             <div className="portfolio_item-cta">
-              <a href={github} target="_blank" className="btn" rel="noreferrer">
-                Github
+              <a href={github} target="_blank" className="btn" rel="noreferrer" aria-label={`GitHub source for ${title} (opens in a new tab)`}>
+                GitHub
               </a>
               <a
                 href={demo}
                 target="_blank"
                 className="btn btn-primary"
                 rel="noreferrer"
+                aria-label={`Live demo of ${title} (opens in a new tab)`}
               >
                 Live Demo
               </a>

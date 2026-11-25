@@ -1,31 +1,23 @@
-nav{
-    background: rgba(0 , 0 , 0 , 0.3);
-    width: max-content;
-    display: block;
-    padding: 0.7rem 1.7rem;
-    z-index: 10;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 2rem;
-    display: flex;
-    gap: 0.8rem;
-    border-radius: 3rem;
-    backdrop-filter: blur(15px);
+.floating_nav {
+  position: fixed;
+  z-index: 20;
+  left: 50%;
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  width: max-content;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(135, 190, 240, 0.2);
+  border-radius: 3rem;
+  background: rgba(24, 33, 56, 0.94);
+  box-shadow: 0 8px 32px rgba(10, 17, 35, 0.25);
+  backdrop-filter: blur(16px);
 }
-
-nav a{
-    background: transparent;
-    padding: 0.8rem;
-    border-radius: 50%;
-    display: flex;
-    color: var(--color-light);
-    font-size: 1.1rem;
-}
-nav a:hover{
-    background: rgba(0 , 0 , 0 , 0.3);
-}
-nav a.active{
-    background: var(--color-primary);
-    color: var(--color-white);
-}
+.floating_nav a { position: relative; display: grid; place-items: center; flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%; color: var(--color-light); font-size: 1.25rem; transition: color var(--transition), background var(--transition), box-shadow var(--transition); }
+.floating_nav a:hover { background: rgba(77, 181, 255, 0.12); color: var(--color-cyan); }
+.floating_nav a.active { background: var(--color-primary); color: #142338; box-shadow: 0 0 18px rgba(77, 181, 255, 0.2); }
+.nav_label { position: absolute; bottom: calc(100% + 1rem); left: 50%; transform: translate(-50%, 4px); padding: 0.3rem 0.65rem; border: 1px solid var(--color-border); border-radius: 0.4rem; background: #26324e; color: var(--color-white); font-size: 0.875rem; white-space: nowrap; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity var(--transition), transform var(--transition); }
+.floating_nav a:hover .nav_label, .floating_nav a:focus-visible .nav_label { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+@media (max-width: 600px) { .floating_nav { gap: 0.2rem; padding: 0.45rem 0.55rem; bottom: max(0.75rem, env(safe-area-inset-bottom)); } .floating_nav a { width: 44px; height: 44px; } }

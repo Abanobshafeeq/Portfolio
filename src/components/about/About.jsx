@@ -1,40 +1,40 @@
 import { FaAward, FaUserGraduate } from 'react-icons/fa';
 import { VscFolderLibrary } from 'react-icons/vsc';
-import ME from '../../assets/me-about.png';
+import ME from '../../assets/me.png';
 import './about.css';
+import SectionHeading from '../SectionHeading';
 
 const About = () => {
   return (
-    <section id="about">
-      <h5>Get To Know</h5>
-      <h2>About Me</h2>
+    <section id="about" aria-labelledby="about-title">
+      <SectionHeading eyebrow="Get To Know" title="About Me" id="about-title" />
 
       <div className="container about_container">
-        <div className="about_me">
+        <div className="about_me" data-reveal>
           <div className="about_me-image">
-            <img src={ME} alt="About Image" />
+            <img src={ME} alt="Abanoub Shafeeq" loading="lazy" width="433" height="522" />
           </div>
         </div>
 
         <div className="about_content">
           <div className="about_cards">
-            <article className="about_card">
-              <FaUserGraduate className="about_icon" />
-              <h5>Bachelor's Degree</h5>
+            <article className="about_card surface-card" data-reveal>
+              <FaUserGraduate className="about_icon" aria-hidden="true" />
+              <h3>Bachelor's Degree</h3>
               <small>Computer Engineering</small> <br />
               <small>Benha University</small>
             </article>
 
-            <article className="about_card">
-              <FaAward className="about_icon" />
-              <h5>Experience</h5>
+            <article className="about_card surface-card" data-reveal>
+              <FaAward className="about_icon" aria-hidden="true" />
+              <h3>Experience</h3>
               <small>Frontend Developer</small> <br />
               <small>Health Insights Group</small>
             </article>
 
-            <article className="about_card">
-              <VscFolderLibrary className="about_icon" />
-              <h5>Projects</h5>
+            <article className="about_card surface-card" data-reveal>
+              <VscFolderLibrary className="about_icon" aria-hidden="true" />
+              <h3>Projects</h3>
               <small>Production & Personal Projects</small>
             </article>
           </div>

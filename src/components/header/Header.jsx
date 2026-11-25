@@ -6,20 +6,23 @@ import './header.css'
 
 function Header() {
   return (
-    <header>
+    <header id="home" aria-labelledby="hero-name">
       <div className="container header_container">
 
-        <h1>Abanoub Shafeeq</h1>
-        <h4 className="text-light">Frontend Developer (Angular & React)</h4>
+        <p className="hero_greeting hero_enter">Hello, I'm</p>
+        <h1 id="hero-name" className="hero_enter">Abanoub Shafeeq</h1>
+        <p className="hero_role hero_enter">Frontend Developer <span>(Angular & React)</span></p>
         
         <CTA />
         <Social />
 
-        <div className="me">
-          <img src={ME} alt="" />
+        <div className="hero_portrait hero_enter">
+          <div className="me">
+            <img src={ME} alt="Abanoub Shafeeq" width="427" height="522" />
+          </div>
         </div>
 
-        <a href="#about" className='scroll_down'>Scroll Down</a>
+        <a href="#about" className='scroll_down text-link'>Scroll Down</a>
       </div>
     </header>
   )

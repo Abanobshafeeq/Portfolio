@@ -1,63 +1,12 @@
-
-footer{
-    background: var(--color-primary);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 14px;
-    margin-top: 100px;
-}
-footer a{
-    color: var(--color-bg);
-}
-
-
-.footer_logo{
-    font-size: 25px;
-    font-weight: 500;
-    margin-bottom: 30px;
-    display: inline-block;
-}
-
-.permalinks{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0 auto 30px;
-}
-
-.footer_socials{
-    display: flex;
-    justify-content: center;
-    gap: 15px ;
-    margin-bottom: 40px;
-}
-.footer_socials a{
-    background: var(--color-bg);
-    color: var(--color-white);
-    padding: 12px;
-    border-radius: 10px;
-    display: flex;
-    border: 1px solid transparent;
-    transition: var(--transition);
-}
-.footer_socials a:hover{
-    background: transparent;
-    color: var(--color-bg);
-    border-color: var(--color-bg);
-}
-
-.footer_copyright{
-    margin-bottom: 4rem;
-    color: var(--color-bg);
-}
-
-
-
-@media (max-width:600px) {
-.permalinks{
-    flex-direction: column;
-    gap: 20px;
-}
-
-}
+footer { background: var(--color-primary); color: #142338; margin-top: 3rem; padding: 3rem 0 7rem; text-align: center; }
+footer a { color: #142338; }
+footer a:hover { color: #142338; }
+footer :focus-visible { outline-color: #142338; }
+.footer_logo { display: inline-block; font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; }
+.permalinks { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.75rem; margin-bottom: 1.5rem; list-style: none; }
+.permalinks a { display: inline-flex; align-items: center; min-height: 44px; font-size: 0.9375rem; }
+.footer_socials { display: flex; justify-content: center; gap: 0.85rem; margin-bottom: 1.5rem; }
+.footer_socials a { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 0.65rem; border: 1px solid transparent; background: var(--color-bg); color: var(--color-white); font-size: 1.25rem; transition: background var(--transition), color var(--transition), transform var(--transition); }
+.footer_socials a:hover { background: transparent; color: #142338; border-color: #142338; transform: translateY(-3px); }
+.footer_copyright { font-size: 0.875rem; }
+@media (max-width: 600px) { footer { margin-top: 1.5rem; } .permalinks { gap: 0.5rem 1.25rem; } }

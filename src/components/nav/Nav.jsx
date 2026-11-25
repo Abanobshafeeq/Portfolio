@@ -1,27 +1,55 @@
-import React from 'react'
-import './nav.css'
+import { useEffect, useState } from 'react';
+import { IoHomeOutline } from 'react-icons/io5';
+import { LuUserRound } from 'react-icons/lu';
+import { BiBook, BiMessageSquareDetail } from 'react-icons/bi';
+import { RiServiceLine } from 'react-icons/ri';
+import { FiGrid } from 'react-icons/fi';
+import './nav.css';
 
-import { IoHomeOutline } from "react-icons/io5";
-import { LuUserRound } from "react-icons/lu";
-import { BiBook } from "react-icons/bi";
-import { RiServiceLine } from "react-icons/ri";
-import { BiMessageSquareDetail } from "react-icons/bi";
-import { useState } from 'react';
-
+const items = [
+  { id: 'home', label: 'Home', Icon: IoHomeOutline },
+  { id: 'about', label: 'About', Icon: LuUserRound },
+  { id: 'skills', label: 'Experience', Icon: BiBook },
+  { id: 'services', label: 'Services', Icon: RiServiceLine },
+  { id: 'portfolio', label: 'Portfolio', Icon: FiGrid },
+  { id: 'contact', label: 'Contact', Icon: BiMessageSquareDetail },
+];
 
 function Nav() {
+  const [active, setActive] = useState('home');
 
-  const [activeNav , setActiveNav] = useState("#")
+  useEffect(() => {
+    let frame;
+    const sections = items.map(({ id }) => document.getElementById(id));
+    const update = () => {
+      const position = window.innerHeight * 0.35;
+      const current = sections.filter((section) => section && section.getBoundingClientRect().top <= position).pop();
+      setActive(current?.id || 'home');
+    };
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+    };
+  }, []);
 
   return (
-    <nav>
-      <a href="#" className={activeNav === "#" ? "active" : ""} onClick={() => setActiveNav('#')}><IoHomeOutline /></a>
-      <a href="#about" className={activeNav === "#about" ? "active" : ""} onClick={() => setActiveNav('#about')}><LuUserRound  /></a>
-      <a href="#services"  className={activeNav === "#services" ? "active" : ""} onClick={() => setActiveNav('#services')}><RiServiceLine /></a>
-      <a href="#portfolio"  className={activeNav === "#portfolio" ? "active" : ""} onClick={() => setActiveNav('#portfolio')}><BiBook /></a>
-      <a href="#contact"  className={activeNav === "#contact" ? "active" : ""} onClick={() => setActiveNav('#contact')}><BiMessageSquareDetail /></a>
+    <nav className="floating_nav" aria-label="Main navigation">
+      {items.map(({ id, label, Icon }) => (
+        <a key={id} href={`#${id}`} aria-label={label} aria-current={active === id ? 'location' : undefined} className={active === id ? 'active' : ''}>
+          <Icon aria-hidden="true" />
+          <span className="nav_label">{label}</span>
+        </a>
+      ))}
     </nav>
-  )
+  );
 }
 
-export default Nav
+export default Nav;
